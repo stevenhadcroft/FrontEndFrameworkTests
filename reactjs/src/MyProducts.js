@@ -7,15 +7,15 @@ class MyProducts extends Component {
         super(props);
     }
 
-    removeProduct(d, i){
+    removeProduct(product){
+        window.EventDispatcher.trigger('removeMyProduct', product);
     }
 
     render() {
         var listItems =  <div>
-            {this.props.data.myProducts.map( (d, i) =>
-                <li onClick={()=>this.removeProduct(d, i)}>
-                    <img src={this.props.data.productBucket + d.url} alt={d.title}/>
-                    <div>{d.title}</div>
+            {this.props.data.myProducts.map( (product, index) =>
+                <li onClick={()=>this.removeProduct(product, index)} key={product+index}>
+                    <img src={this.props.data.productBucket + product.url} alt={product.title}/>
                 </li>
             )}
         </div>

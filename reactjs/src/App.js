@@ -8,8 +8,9 @@ class App extends Component {
     constructor (props){
         super(props);
 
-        window.EventDispatcher.on('addToMyProduct', (d) => this.onAddToMyProduct(d));
+        window.EventDispatcher.on('addToMyProduct', (product) => this.onAddToMyProduct(product));
         window.EventDispatcher.on('addProduct', () => this.onAddProduct());
+        window.EventDispatcher.on('removeMyProduct', (product) => this.onRemoveMyProduct(product));
 
         window.data.myProducts = [];
         this.state = {
@@ -17,9 +18,12 @@ class App extends Component {
         }
     }
 
-    onAddToMyProduct(d){
-        this.state.data.myProducts.push(d);
-        this.setState(this.state)
+
+    onAddToMyProduct(product){
+        if (this.state.data.myProducts.length<5){
+            this.state.data.myProducts.push(product);
+            this.setState(this.state)
+        }
     }
 
     onAddProduct(){
@@ -27,11 +31,21 @@ class App extends Component {
         this.setState(this.state)
     }
 
+    onRemoveMyProduct(product){
+        console.log('removeMyProduct')
+        var index = this.state.data.myProducts.indexOf(product);
+        if (index != -1){
+            this.state.data.myProducts.splice(index, 1);
+        }
+        this.setState(this.state)
+    }
+
+
     render() {
         return (
             <div className="App">
-                <MyProducts data={this.state.data}/>
                 <ProductList data={this.state.data}/>
+                <MyProducts data={this.state.data}/>
             </div>
             );
         }

@@ -6,22 +6,22 @@ class ProductList extends Component {
         super(props);
     }
 
-    selectProduct(d, i){
-        window.EventDispatcher.trigger('addToMyProduct', d);
+    selectProduct(product){
+        window.EventDispatcher.trigger('addToMyProduct', product);
     }
 
     render() {
         var listItems =  <div>
-                {this.props.data.products.map( (d, i) =>
-                    <li onClick={()=>this.selectProduct(d, i)} key={d+i}>
-                        <img src={this.props.data.productBucket + d.url} alt={d.title}/>
-                        <div>{d.title}</div>
+                {this.props.data.products.map( (product, index) =>
+                    <li onClick={()=>this.selectProduct(product, index)} key={product+index} className="col-2">
+                        <img src={this.props.data.productBucket + product.url} alt={product.title}/>
+                        <div>{product.title}</div>
                     </li>
                 )}
             </div>
 
         return (
-            <div className="product-container">
+            <div className="product-container col-12">
                 <ul className="cell">
                     {listItems}
                 </ul>
