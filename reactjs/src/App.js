@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import EventDispatcher from './EventDispatcher.js';
 import ProductList from './ProductList.js';
 import MyProducts from "./MyProducts";
+import Diagnostics from "./Diagnostics";
 
 class App extends Component {
 
@@ -16,6 +17,8 @@ class App extends Component {
         this.state = {
             data:window.data
         }
+
+
     }
 
 
@@ -32,7 +35,6 @@ class App extends Component {
     }
 
     onRemoveMyProduct(product){
-        console.log('removeMyProduct')
         var index = this.state.data.myProducts.indexOf(product);
         if (index != -1){
             this.state.data.myProducts.splice(index, 1);
@@ -46,6 +48,7 @@ class App extends Component {
             <div className="App">
                 <ProductList data={this.state.data}/>
                 <MyProducts data={this.state.data}/>
+                <Diagnostics/>
             </div>
             );
         }
