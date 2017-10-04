@@ -10,9 +10,9 @@ const mapDispatchToProps = {
     onClick: addMyProduct
 }
 
-const VisibleProductList = connect(
+const ProductListContainer = connect(
     mapStateToProps,
     mapDispatchToProps
 )(ProductListView)
 
-export default VisibleProductList
+export default ProductListContainer

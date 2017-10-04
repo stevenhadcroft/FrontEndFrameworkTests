@@ -1,4 +1,5 @@
 window.data = {
+    "myProducts":[],
     "products":[
         {
             "title":"Title 1",

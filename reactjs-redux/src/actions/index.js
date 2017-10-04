@@ -9,3 +9,7 @@ export const addMyProduct = (e) => ({
     url: e.url
 })
 
+export const removeMyProduct = (e) => ({
+    type: 'REMOVE_MY_PRODUCT',
+    product: e,
+})

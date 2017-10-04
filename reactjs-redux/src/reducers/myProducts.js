@@ -9,6 +9,15 @@ const products = (state = [], action) => {
                 }
             ]
 
+        case 'REMOVE_MY_PRODUCT':
+            console.log('REMOVE_MY_PRODUCT ', action.product)
+            var index = state.indexOf(action.product);
+            if (index !== -1){
+                state.splice(index, 1);
+            }
+            return [...state]
+
+
         default:
             return state
     }

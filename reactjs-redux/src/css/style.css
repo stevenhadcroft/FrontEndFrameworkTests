@@ -1,5 +1,5 @@
 html, body {
-    font-family: Raleway;
+    font-family: Tahoma;
 }
 
 .product-container {
@@ -23,18 +23,17 @@ html, body {
 }
 
 .cell div {
-    text-align: center;
     padding: 5px;
 }
 
 .button.add {
-    position: fixed;
-    top:20px;
-    right:20px;
-    width: 150px;
-    height: 50px;
-    background-color:#777;
+    position: relative;
+    padding: 10px 20px;
+    background-color: #3e7520;
     color: #fff;
+    border: none;
+    float: right;
+    margin: 25px 20px 0px 0px;
 }
 
 .my-product-container {
@@ -43,10 +42,10 @@ html, body {
     left:0px;
     background-color: white;
     width: 100%;
-    height:80px;
+    height:70px;
 }
 
-.cell.my-product li{
+.cell.my-product li {
     width: 60px;
     height: 60px;
 }

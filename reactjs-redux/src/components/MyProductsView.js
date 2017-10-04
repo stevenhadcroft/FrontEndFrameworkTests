@@ -5,9 +5,8 @@ const MyProducts = ({ products, onClick}) => (
     <div className="my-product-container">
         <ul className="cell my-product">
             {products.map( (product, index) =>
-                <li onClick={()=>onClick(product, index)} key={product+index}>
+                <li onClick={()=>onClick(product)} key={product+index}>
                     <img src={'img/' + product.url} alt={product.title}/>
-                    <div>{product.title}</div>
                 </li>
             )}
         </ul>

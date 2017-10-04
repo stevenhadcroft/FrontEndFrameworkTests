@@ -1,18 +1,28 @@
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import MyProductsView from '../components/MyProductsView'
-import { addProduct } from '../actions/index';
+import {addProduct, removeMyProduct} from '../actions/index';
+import HTTP from '../utils/http'
 
 const mapStateToProps = (state) => ({
     products: state.myProducts
 })
 
-const mapDispatchToProps = {
-    onClick: addProduct
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onClick: (product) => {
+            dispatch(removeMyProduct(product));
+        }
+    }
 }
 
-const VisibleMyProducts = connect(
+// ...or
+// const mapDispatchToProps = {
+//     onClick: removeMyProduct,
+// }
+
+const MyProductsContainer = connect(
     mapStateToProps,
     mapDispatchToProps
 )(MyProductsView)
 
-export default VisibleMyProducts
+export default MyProductsContainer

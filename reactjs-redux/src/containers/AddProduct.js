@@ -1,12 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addProduct } from '../actions/index';
+import { addProduct, callAPI } from '../actions/index';
+import HTTP from '../utils/http';
 
 let AddProduct = ({ dispatch }) => {
     return (
-        <button className="button add" onClick={e => {
-            dispatch(addProduct())
-        }}>ADD</button>
+        <div>
+            <button className="button add" onClick={e => {
+                dispatch(addProduct())
+            }}>ADD</button>
+            <button className="button add" onClick={e => {
+                HTTP.post().then(() => {
+                        dispatch(addProduct());
+                    }
+                );
+            }}>CALL API</button>
+        </div>
+
     )
 }
 
