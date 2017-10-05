@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+
 const MyProducts = ({ products, onClick}) => (
     <div className="my-product-container">
         <ul className="cell my-product">

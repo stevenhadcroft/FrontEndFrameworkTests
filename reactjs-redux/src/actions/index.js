@@ -1,15 +1,16 @@
 
-export const addProduct = () => ({
-    type: 'ADD_PRODUCT'
+export const addProduct = (product) => ({
+    type: 'ADD_PRODUCT',
+    product: product,
 })
 
-export const addMyProduct = (e) => ({
+export const addMyProduct = (obj) => ({
     type: 'ADD_MY_PRODUCT',
-    title: e.title,
-    url: e.url
+    title: obj.title,
+    url: obj.url
 })
 
-export const removeMyProduct = (e) => ({
+export const removeMyProduct = (product) => ({
     type: 'REMOVE_MY_PRODUCT',
-    product: e,
+    product: product,
 })

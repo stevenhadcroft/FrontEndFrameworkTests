@@ -1,8 +1,11 @@
 const products = (state = [], action) => {
     switch (action.type) {
         case 'ADD_PRODUCT':
-            state.unshift(state[0]);
+            if (action.product){
+                state.unshift(action.product);
+            }
             return [...state];
+            break;
 
         default:
             return state
@@ -10,3 +13,4 @@ const products = (state = [], action) => {
 }
 
 export default products
+

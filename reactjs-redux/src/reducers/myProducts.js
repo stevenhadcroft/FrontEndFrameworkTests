@@ -1,4 +1,4 @@
-const products = (state = [], action) => {
+const myProducts = (state = [], action) => {
     switch (action.type) {
         case 'ADD_MY_PRODUCT':
             return [
@@ -10,7 +10,6 @@ const products = (state = [], action) => {
             ]
 
         case 'REMOVE_MY_PRODUCT':
-            console.log('REMOVE_MY_PRODUCT ', action.product)
             var index = state.indexOf(action.product);
             if (index !== -1){
                 state.splice(index, 1);
@@ -23,4 +22,4 @@ const products = (state = [], action) => {
     }
 }
 
-export default products
+export default myProducts
